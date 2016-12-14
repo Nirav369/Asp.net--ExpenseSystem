@@ -1,0 +1,33 @@
+﻿<%@ Master Language="VB" CodeFile="expense.master.vb" Inherits="expense" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h1>CSS 557 EXPENSE SYSTEM</h1>
+        <asp:Menu ID="mainMenu" runat="server" DataSourceID="XMLuser" Orientation="Horizontal" Visible="False">
+            <DataBindings>
+                <asp:MenuItemBinding DataMember="siteMapNode" NavigateUrlField="url" TextField="title" ToolTipField="description" />
+            </DataBindings>
+        </asp:Menu>
+        <asp:XmlDataSource ID="XMLuser" runat="server" DataFile="~/User.xml" XPath="/*/*/*"></asp:XmlDataSource>
+        <br />
+        <br />
+        <br />
+
+        <asp:ContentPlaceHolder id="MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+        <br />
+        <asp:Label ID="lblMessage" runat="server"></asp:Label>
+    </form>
+</body>
+</html>
